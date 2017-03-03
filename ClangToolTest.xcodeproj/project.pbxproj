@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7BF140611E6573AF00117C95 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF140601E6573AF00117C95 /* main.m */; };
+		7B4301C91E68147C00992C9A /* ToyPlugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B4301C81E68147C00992C9A /* ToyPlugin.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +23,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7B4301C81E68147C00992C9A /* ToyPlugin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToyPlugin.cpp; sourceTree = "<group>"; };
 		7BF1405D1E6573AF00117C95 /* ClangToolTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ClangToolTest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BF140601E6573AF00117C95 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +43,7 @@
 			children = (
 				7BF1405F1E6573AF00117C95 /* ClangToolTest */,
 				7BF1405E1E6573AF00117C95 /* Products */,
+				7BF140671E65760D00117C95 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +58,16 @@
 		7BF1405F1E6573AF00117C95 /* ClangToolTest */ = {
 			isa = PBXGroup;
 			children = (
-				7BF140601E6573AF00117C95 /* main.m */,
+				7B4301C81E68147C00992C9A /* ToyPlugin.cpp */,
 			);
 			path = ClangToolTest;
+			sourceTree = "<group>";
+		};
+		7BF140671E65760D00117C95 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +127,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BF140611E6573AF00117C95 /* main.m in Sources */,
+				7B4301C91E68147C00992C9A /* ToyPlugin.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +224,80 @@
 		7BF140651E6573AF00117C95 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				HEADER_SEARCH_PATHS = (
+					/opt/llvm/llvm_build/tools/clang/include/,
+					/opt/llvm/llvm_build/include,
+					/opt/llvm/llvm/tools/clang/include,
+					/opt/llvm/llvm/include,
+					/opt/llvm/llvm/utils/unittest/googletest/include,
+					/opt/llvm/llvm/tools/clang/unittests/Tooling,
+				);
+				LIBRARY_SEARCH_PATHS = /opt/llvm/llvm_build_rtti/lib;
+				OTHER_LDFLAGS = (
+					"-Wl,-headerpad_max_install_names",
+					"-lclang",
+					"-lclangFrontend",
+					"-lclangAST",
+					"-lclangAnalysis",
+					"-lclangBasic",
+					"-lclangCodeGen",
+					"-lclangDriver",
+					"-lclangFrontendTool",
+					"-lclangLex",
+					"-lclangParse",
+					"-lclangSema",
+					"-lclangEdit",
+					"-lclangSerialization",
+					"-lclangStaticAnalyzerCheckers",
+					"-lclangStaticAnalyzerCore",
+					"-lclangStaticAnalyzerFrontend",
+					"-lclangTooling",
+					"-lclangToolingCore",
+					"-lLLVMX86CodeGen",
+					"-lLLVMX86AsmParser",
+					"-lLLVMX86Disassembler",
+					"-lLLVMExecutionEngine",
+					"-lLLVMAsmPrinter",
+					"-lLLVMSelectionDAG",
+					"-lLLVMX86AsmPrinter",
+					"-lLLVMX86Info",
+					"-lLLVMMCParser",
+					"-lLLVMCodeGen",
+					"-lLLVMX86Utils",
+					"-lLLVMScalarOpts",
+					"-lLLVMInstCombine",
+					"-lLLVMTransformUtils",
+					"-lLLVMAnalysis",
+					"-lLLVMTarget",
+					"-lLLVMCore",
+					"-lLLVMMC",
+					"-lLLVMSupport",
+					"-lLLVMBitReader",
+					"-lLLVMOption",
+					"-lLLVMProfileData",
+					"-lpthread",
+					"-lcurses",
+					"-lz",
+					"-lstdc++",
+					"-fPIC",
+					"-fno-common",
+					"-Woverloaded-virtual",
+					"-Wcast-qual",
+					"-fno-strict-aliasing",
+					"-pedantic",
+					"-Wno-long-long",
+					"-Wall",
+					"-Wno-unused-parameter",
+					"-Wwrite-strings",
+					"-fno-rtti",
+					"-fPIC",
+					"-lclangRewriteFrontend",
+					"-lclangRewrite",
+					"-lclangARCMigrate",
+					/opt/llvm/llvm_build_rtti/lib/libgtest.a,
+					/opt/llvm/llvm_build_rtti/lib/libLLVMAArch64AsmPrinter.a,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -223,6 +305,80 @@
 		7BF140661E6573AF00117C95 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				HEADER_SEARCH_PATHS = (
+					/opt/llvm/llvm_build/tools/clang/include/,
+					/opt/llvm/llvm_build/include,
+					/opt/llvm/llvm/tools/clang/include,
+					/opt/llvm/llvm/include,
+					/opt/llvm/llvm/utils/unittest/googletest/include,
+					/opt/llvm/llvm/tools/clang/unittests/Tooling,
+				);
+				LIBRARY_SEARCH_PATHS = /opt/llvm/llvm_build_rtti/lib;
+				OTHER_LDFLAGS = (
+					"-Wl,-headerpad_max_install_names",
+					"-lclang",
+					"-lclangFrontend",
+					"-lclangAST",
+					"-lclangAnalysis",
+					"-lclangBasic",
+					"-lclangCodeGen",
+					"-lclangDriver",
+					"-lclangFrontendTool",
+					"-lclangLex",
+					"-lclangParse",
+					"-lclangSema",
+					"-lclangEdit",
+					"-lclangSerialization",
+					"-lclangStaticAnalyzerCheckers",
+					"-lclangStaticAnalyzerCore",
+					"-lclangStaticAnalyzerFrontend",
+					"-lclangTooling",
+					"-lclangToolingCore",
+					"-lLLVMX86CodeGen",
+					"-lLLVMX86AsmParser",
+					"-lLLVMX86Disassembler",
+					"-lLLVMExecutionEngine",
+					"-lLLVMAsmPrinter",
+					"-lLLVMSelectionDAG",
+					"-lLLVMX86AsmPrinter",
+					"-lLLVMX86Info",
+					"-lLLVMMCParser",
+					"-lLLVMCodeGen",
+					"-lLLVMX86Utils",
+					"-lLLVMScalarOpts",
+					"-lLLVMInstCombine",
+					"-lLLVMTransformUtils",
+					"-lLLVMAnalysis",
+					"-lLLVMTarget",
+					"-lLLVMCore",
+					"-lLLVMMC",
+					"-lLLVMSupport",
+					"-lLLVMBitReader",
+					"-lLLVMOption",
+					"-lLLVMProfileData",
+					"-lpthread",
+					"-lcurses",
+					"-lz",
+					"-lstdc++",
+					"-fPIC",
+					"-fno-common",
+					"-Woverloaded-virtual",
+					"-Wcast-qual",
+					"-fno-strict-aliasing",
+					"-pedantic",
+					"-Wno-long-long",
+					"-Wall",
+					"-Wno-unused-parameter",
+					"-Wwrite-strings",
+					"-fno-rtti",
+					"-fPIC",
+					"-lclangRewriteFrontend",
+					"-lclangRewrite",
+					"-lclangARCMigrate",
+					/opt/llvm/llvm_build_rtti/lib/libgtest.a,
+					/opt/llvm/llvm_build_rtti/lib/libLLVMAArch64AsmPrinter.a,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -246,6 +402,7 @@
 				7BF140661E6573AF00117C95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
